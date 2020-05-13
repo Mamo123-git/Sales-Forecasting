@@ -1,0 +1,28 @@
+{% extends 'Base.html' %}
+
+{% block head %} {% endblock %}
+
+{% block body %}
+<div class = "login">
+    <h1> Sales Prediction</h1>
+    
+    <!--Main Input for Receiving Query to our ML-->
+
+    <form action= "{{url_for('predict')}}", method = "POST">
+        <input type = "text" name = "rate" placeholder="rate" required = "required"/><br>
+        <input type = "text" name = "sales in first month" placeholder="sales in first month" required = "required"/><br>
+        <input type = "text" name = "sales in second month" placeholder="sales in second month" required = "required"/><br>
+
+        <button type = "Submit" class = "btn primary">Predict sales in third month</button>
+    </form>
+
+    <Table>
+        
+        <tr>
+            {{prediction_text}}
+        </tr></Table>
+    
+</div>
+
+
+{% endblock %}
